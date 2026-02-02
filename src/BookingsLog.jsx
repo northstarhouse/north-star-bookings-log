@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Check, Archive, RefreshCw, Save } from 'lucide-react';
 
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbydaZEpixA_RWAQ42HPsrFe6gCrf5bDYhWbj7COlNwmq-tQOOJaBiivRQfahnGq3WIDeQ/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwvi0OZXNzKNXrfN4HHwsR1kzwwZeq5HvTnyic2GKzXN9_Fx2O_AFCuj6izIAIhdg5t/exec';
 
 const defaultBookings = [
   { id: 1, name: "Korrie Peterson & Seann Wedding", type: "Wedding", date: "11/7/2026", client1: "Korrie Peterson", client2: "Katie Klouda" },
