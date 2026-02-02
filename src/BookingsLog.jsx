@@ -224,6 +224,9 @@ const BookingsLog = () => {
 
   const activeCount = bookings.filter(b => !b.completed).length;
   const archivedCount = bookings.filter(b => b.completed).length;
+  const weddingsCount = bookings.filter(b => b.type === 'Wedding' && !b.completed).length;
+  const privatePartiesCount = bookings.filter(b => b.type === 'Private Party' && !b.completed).length;
+  const nonProfitCount = bookings.filter(b => b.type === 'Non-Profit' && !b.completed).length;
 
   const today = new Date();
   const threeMonthsOut = new Date(today);
@@ -362,7 +365,7 @@ const BookingsLog = () => {
                     : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
                 }`}
               >
-                Weddings
+                Weddings ({weddingsCount})
               </button>
               <button
                 onClick={() => setFilter('Private Party')}
@@ -372,7 +375,7 @@ const BookingsLog = () => {
                     : 'bg-rose-100 text-rose-800 hover:bg-rose-200'
                 }`}
               >
-                Private Parties
+                Private Parties ({privatePartiesCount})
               </button>
               <button
                 onClick={() => setFilter('Non-Profit')}
@@ -382,7 +385,7 @@ const BookingsLog = () => {
                     : 'bg-emerald-100 text-emerald-800 hover:bg-emerald-200'
                 }`}
               >
-                Non-Profit
+                Non-Profit ({nonProfitCount})
               </button>
             </div>
           </div>
