@@ -57,16 +57,24 @@ const BookingsLog = () => {
   const saveTimeoutRef = useRef(null);
 
   const normalizeBookings = (list) =>
-    list.map((b) => ({
-      ...b,
-      projectLink: b.projectLink || b.ProjectLink || b['Project Link'] || '',
-    }));
+    list.map((b) => {
+      const projectLink = b.projectLink || b.ProjectLink || b['Project Link'] || '';
+      const name = b.name || b['Project Name'] || '';
+      return {
+        ...b,
+        name,
+        projectLink,
+        // Use name as the stable key for save/restore.
+        id: String(b.id || name || ''),
+      };
+    });
 
   const mapBookingForSave = (b) => ({
     ...b,
     projectLink: b.projectLink || b.ProjectLink || b['Project Link'] || '',
     ProjectLink: b.projectLink || b.ProjectLink || b['Project Link'] || '',
     'Project Link': b.projectLink || b.ProjectLink || b['Project Link'] || '',
+    id: String(b.name || b.id || ''),
   });
 
   // Load bookings from Google Sheets
