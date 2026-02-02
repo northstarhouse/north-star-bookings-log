@@ -416,7 +416,7 @@ const BookingsLog = () => {
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setFilter('2026')}
-                className={`px-4 py-2 rounded-md text-sm transition-colors ${
+                className={`px-3 py-1.5 rounded-md text-xs transition-colors ${
                   filter === '2026'
                     ? 'bg-stone-800 text-white'
                     : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
@@ -426,7 +426,7 @@ const BookingsLog = () => {
               </button>
               <button
                 onClick={() => setFilter('2027')}
-                className={`px-4 py-2 rounded-md text-sm transition-colors ${
+                className={`px-3 py-1.5 rounded-md text-xs transition-colors ${
                   filter === '2027'
                     ? 'bg-stone-800 text-white'
                     : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
@@ -436,7 +436,7 @@ const BookingsLog = () => {
               </button>
               <button
                 onClick={() => setFilter('2028')}
-                className={`px-4 py-2 rounded-md text-sm transition-colors ${
+                className={`px-3 py-1.5 rounded-md text-xs transition-colors ${
                   filter === '2028'
                     ? 'bg-stone-800 text-white'
                     : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
