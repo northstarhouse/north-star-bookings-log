@@ -147,6 +147,14 @@ const BookingsLog = () => {
     return new Date(year, month - 1, day);
   };
 
+  const formatDate = (dateStr) => {
+    const [month, day, year] = dateStr.split('/');
+    const mm = String(month || '').padStart(2, '0');
+    const dd = String(day || '').padStart(2, '0');
+    const yyyy = String(year || '').padStart(4, '0');
+    return `${mm}-${dd}-${yyyy}`;
+  };
+
   const filteredBookings = bookings.filter(b => {
     if (filter === 'active' && b.completed) return false;
     if (filter === 'archived' && !b.completed) return false;
@@ -400,7 +408,7 @@ const BookingsLog = () => {
                 <div className="flex justify-between items-start mb-4 pb-4 border-b border-stone-200">
                   <div className="flex-1">
                     <h3 className="text-lg font-medium text-stone-800">{booking.name}</h3>
-                    <p className="text-sm text-stone-600 mt-1">{booking.date}</p>
+                    <p className="text-sm text-stone-600 mt-1">{formatDate(booking.date)}</p>
                     {booking.client1 && (
                       <p className="text-xs text-stone-500 mt-1">{booking.client1}</p>
                     )}
