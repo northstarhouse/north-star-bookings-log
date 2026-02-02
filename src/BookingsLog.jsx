@@ -427,20 +427,22 @@ const BookingsLog = () => {
                 {/* Header */}
                 <div className="flex justify-between items-start mb-4 pb-4 border-b border-stone-200">
                   <div className="flex-1">
-                    <h3 className="text-lg font-medium text-stone-800">{booking.name}</h3>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="text-lg font-medium text-stone-800">{booking.name}</h3>
+                      {booking.projectLink && (
+                        <a
+                          href={booking.projectLink}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex text-xs font-medium text-stone-700 underline decoration-stone-400 underline-offset-2 hover:text-stone-900"
+                        >
+                          Project Link
+                        </a>
+                      )}
+                    </div>
                     <p className="text-sm text-stone-600 mt-1">{formatDate(booking.date)}</p>
                     {booking.client1 && (
                       <p className="text-xs text-stone-500 mt-1">{booking.client1}</p>
-                    )}
-                    {booking.projectLink && (
-                      <a
-                        href={booking.projectLink}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex mt-2 text-xs font-medium text-stone-700 underline decoration-stone-400 underline-offset-2 hover:text-stone-900"
-                      >
-                        Project Link
-                      </a>
                     )}
                   </div>
                   <div className="flex items-center gap-2">
