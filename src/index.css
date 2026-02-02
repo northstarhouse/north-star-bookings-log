@@ -1,1 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap');
 @import "tailwindcss";
+
+:root {
+  --font-cardo: 'Cardo', serif;
+}
+
+.font-cardo {
+  font-family: var(--font-cardo);
+}
