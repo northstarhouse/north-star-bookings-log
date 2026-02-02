@@ -223,6 +223,9 @@ const BookingsLog = () => {
              (b.type !== 'Wedding' || b.brickWordingReceived);
       return allComplete && !b.completed;
     }
+    if (filter === '2026' || filter === '2027' || filter === '2028') {
+      return eventDate.getFullYear() === Number(filter) && !b.completed;
+    }
     if (filter === 'Wedding' || filter === 'Private Party' || filter === 'Non-Profit') {
       return b.type === filter && !b.completed;
     }
@@ -245,6 +248,9 @@ const BookingsLog = () => {
   const weddingsCount = bookings.filter(b => b.type === 'Wedding' && !b.completed).length;
   const privatePartiesCount = bookings.filter(b => b.type === 'Private Party' && !b.completed).length;
   const nonProfitCount = bookings.filter(b => b.type === 'Non-Profit' && !b.completed).length;
+  const year2026Count = bookings.filter(b => parseDate(b.date).getFullYear() === 2026 && !b.completed).length;
+  const year2027Count = bookings.filter(b => parseDate(b.date).getFullYear() === 2027 && !b.completed).length;
+  const year2028Count = bookings.filter(b => parseDate(b.date).getFullYear() === 2028 && !b.completed).length;
 
   const today = new Date();
   const threeMonthsOut = new Date(today);
@@ -404,6 +410,39 @@ const BookingsLog = () => {
                 }`}
               >
                 Non-Profit ({nonProfitCount})
+              </button>
+            </div>
+            <div className="h-6 w-px bg-stone-300"></div>
+            <div className="flex flex-wrap gap-2">
+              <button
+                onClick={() => setFilter('2026')}
+                className={`px-4 py-2 rounded-md text-sm transition-colors ${
+                  filter === '2026'
+                    ? 'bg-stone-800 text-white'
+                    : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
+                }`}
+              >
+                2026 ({year2026Count})
+              </button>
+              <button
+                onClick={() => setFilter('2027')}
+                className={`px-4 py-2 rounded-md text-sm transition-colors ${
+                  filter === '2027'
+                    ? 'bg-stone-800 text-white'
+                    : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
+                }`}
+              >
+                2027 ({year2027Count})
+              </button>
+              <button
+                onClick={() => setFilter('2028')}
+                className={`px-4 py-2 rounded-md text-sm transition-colors ${
+                  filter === '2028'
+                    ? 'bg-stone-800 text-white'
+                    : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
+                }`}
+              >
+                2028 ({year2028Count})
               </button>
             </div>
           </div>
