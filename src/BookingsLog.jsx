@@ -59,12 +59,14 @@ const BookingsLog = () => {
   const normalizeBookings = (list) =>
     list.map((b) => ({
       ...b,
-      projectLink: b.projectLink || '',
+      projectLink: b.projectLink || b.ProjectLink || b['Project Link'] || '',
     }));
 
   const mapBookingForSave = (b) => ({
     ...b,
-    projectLink: b.projectLink || '',
+    projectLink: b.projectLink || b.ProjectLink || b['Project Link'] || '',
+    ProjectLink: b.projectLink || b.ProjectLink || b['Project Link'] || '',
+    'Project Link': b.projectLink || b.ProjectLink || b['Project Link'] || '',
   });
 
   // Load bookings from Google Sheets
